@@ -9,8 +9,8 @@ const NAV_LINKS = [
   { href: "#features",           label: "Features" },
   { href: "#architecture",       label: "Architecture" },
   { href: "#gemma-architecture", label: "Gemma AI" },
+  { href: "#why-best",           label: "Judges Review" },
   { href: "#playground",         label: "Playground" },
-  { href: "#social",             label: "Community" },
   { href: "#config",             label: "Config" },
 ];
 

@@ -5,6 +5,7 @@ import AiLeakSolution from "@/components/AiLeakSolution";
 import FeatureGrid from "@/components/FeatureGrid";
 import ArchitectureSection from "@/components/ArchitectureSection";
 import GemmaArchitecture from "@/components/GemmaArchitecture";
+import JudgesPitchSection from "@/components/JudgesPitchSection";
 import Playground from "@/components/Playground";
 import SocialProof from "@/components/SocialProof";
 import ConfigBuilder from "@/components/ConfigBuilder";
@@ -33,7 +34,10 @@ export default function Home() {
         {/* 6. Google Gemma AI Architecture */}
         <GemmaArchitecture />
 
-        {/* 7. Playground — interactive fake terminal */}
+        {/* 7. Why This Project Wins (4 Pillars + Demo Script + FAQ) */}
+        <JudgesPitchSection />
+
+        {/* 8. Playground — interactive fake terminal */}
         <Playground />
 
         {/* 5. Social proof — GitHub stats + testimonials */}
