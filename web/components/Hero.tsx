@@ -151,7 +151,7 @@ export default function Hero() {
       </div>
 
       {/* Install command */}
-      <div className="w-full max-w-2xl">
+      <div id="install-box" className="w-full max-w-2xl scroll-mt-24">
         {/* OS tabs */}
         <div className="flex gap-1 mb-2">
           {osLabels.map(({ key, label, icon }) => (
@@ -201,21 +201,30 @@ export default function Hero() {
         </p>
       </div>
 
-      {/* CTA buttons */}
-      <div className="flex flex-wrap gap-3 mt-8 justify-center">
+      {/* Primary CTA buttons - Focus on trying, installing, and exploring on-site */}
+      <div className="flex flex-wrap gap-3 mt-8 justify-center items-center">
         <a
-          href="https://github.com/yashselokar2025/Hacktoberfest-CommitShield"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="px-5 py-2.5 rounded-lg bg-green-500 hover:bg-green-400 text-black font-semibold text-sm transition-all hover:shadow-[0_0_20px_rgba(0,255,136,0.3)]"
+          href="#install-box"
+          onClick={() => {
+            handleCopy();
+          }}
+          className="px-6 py-3 rounded-lg bg-green-500 hover:bg-green-400 text-black font-bold text-sm transition-all hover:shadow-[0_0_25px_rgba(0,255,136,0.35)] flex items-center gap-2 cursor-pointer"
         >
-          ⭐ Star on GitHub
+          {copied ? <Check size={16} /> : <Terminal size={16} />}
+          {copied ? "Install Command Copied! ✓" : "Copy Install Command"}
         </a>
         <a
           href="#playground"
-          className="px-5 py-2.5 rounded-lg border border-slate-600 hover:border-slate-400 text-slate-300 hover:text-white text-sm transition-all"
+          className="px-6 py-3 rounded-lg bg-[#14141f] border border-slate-700 hover:border-green-500/50 hover:bg-[#1a1a28] text-white font-semibold text-sm transition-all flex items-center gap-2 shadow-sm"
         >
-          Try in Browser →
+          <span>⚡ Try Live Sandbox</span>
+        </a>
+        <a
+          href="#why"
+          className="px-5 py-3 rounded-lg text-slate-400 hover:text-white text-sm transition-colors flex items-center gap-1.5"
+        >
+          <span>See How It Works</span>
+          <ChevronDown size={14} />
         </a>
       </div>
 

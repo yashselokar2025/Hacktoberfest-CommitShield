@@ -40,22 +40,27 @@ export default function Footer() {
             </button>
           </div>
 
-          <div className="flex flex-wrap gap-3 justify-center">
+          <div className="flex flex-wrap gap-3 justify-center items-center">
+            <button
+              onClick={handleCopy}
+              className="flex items-center gap-2 px-6 py-2.5 rounded-lg bg-green-500 hover:bg-green-400 text-black font-bold text-sm transition-all shadow-[0_0_20px_rgba(0,255,136,0.25)]"
+            >
+              {copied ? <Check size={16} /> : <Copy size={16} />}
+              {copied ? "Command Copied to Clipboard!" : "Copy Install Command"}
+            </button>
+            <a
+              href="#playground"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#14141f] border border-slate-700 hover:border-slate-500 text-white font-semibold text-sm transition-all"
+            >
+              ⚡ Test in Browser Playground
+            </a>
             <a
               href="https://github.com/yashselokar2025/Hacktoberfest-CommitShield"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-5 py-2.5 rounded-lg bg-green-500 hover:bg-green-400 text-black font-semibold text-sm transition-all"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-lg text-slate-400 hover:text-white text-xs transition-colors"
             >
-              <Github size={16} /> ⭐ Star on GitHub
-            </a>
-            <a
-              href="https://github.com/yashselokar2025/Hacktoberfest-CommitShield/issues"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-lg border border-slate-600 hover:border-slate-400 text-slate-300 hover:text-white text-sm transition-all"
-            >
-              🐛 Report an Issue
+              <Github size={14} /> View Source on GitHub
             </a>
           </div>
         </div>

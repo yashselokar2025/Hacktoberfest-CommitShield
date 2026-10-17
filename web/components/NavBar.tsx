@@ -56,19 +56,16 @@ export default function NavBar() {
         {/* Actions */}
         <div className="hidden md:flex items-center gap-3">
           <a
-            href="https://github.com/yashselokar2025/Hacktoberfest-CommitShield"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-700 hover:border-slate-500 text-slate-300 hover:text-white text-sm transition-all"
+            href="#install-box"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-slate-700 hover:border-green-500/50 text-slate-300 hover:text-green-300 text-xs font-mono transition-all"
           >
-            <Github size={14} />
-            GitHub
+            <span>$ svc install</span>
           </a>
           <a
             href="#playground"
-            className="px-3 py-1.5 rounded-lg bg-green-500 hover:bg-green-400 text-black font-semibold text-sm transition-all"
+            className="px-3.5 py-1.5 rounded-lg bg-green-500 hover:bg-green-400 text-black font-semibold text-xs transition-all shadow-[0_0_15px_rgba(0,255,136,0.2)]"
           >
-            Try it →
+            Try Sandbox →
           </a>
         </div>
 
@@ -97,19 +94,18 @@ export default function NavBar() {
           ))}
           <div className="flex gap-3 mt-4">
             <a
-              href="https://github.com/yashselokar2025/Hacktoberfest-CommitShield"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-1 text-center py-2 rounded-lg border border-slate-700 text-slate-300 text-sm"
+              href="#install-box"
+              onClick={() => setOpen(false)}
+              className="flex-1 text-center py-2 rounded-lg border border-slate-700 text-slate-300 text-xs font-mono"
             >
-              GitHub
+              $ svc install
             </a>
             <a
               href="#playground"
               onClick={() => setOpen(false)}
-              className="flex-1 text-center py-2 rounded-lg bg-green-500 text-black font-semibold text-sm"
+              className="flex-1 text-center py-2 rounded-lg bg-green-500 text-black font-semibold text-xs"
             >
-              Try it →
+              Try Sandbox →
             </a>
           </div>
         </div>
