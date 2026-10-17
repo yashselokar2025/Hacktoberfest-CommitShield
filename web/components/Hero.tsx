@@ -111,11 +111,20 @@ export default function Hero() {
         <span className="text-green-glow">Before they reach GitHub.</span>
       </h1>
 
-      <p className="text-center text-slate-400 max-w-xl mb-10 text-base sm:text-lg leading-relaxed">
-        <code className="text-green-400">SecureVibeCoded</code> is a pre-commit hook CLI that
-        catches new secrets and vulnerable deps — powered by{" "}
-        <span className="text-purple-400">Gemma AI</span> + logistic regression.{" "}
-        <strong className="text-white">Zero noise. Only what changed.</strong>
+      {/* Sub-headline: Dual Defense Assurance */}
+      <div className="flex items-center justify-center gap-2 mb-6">
+        <span className="px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700 text-slate-300 text-xs sm:text-sm font-mono flex items-center gap-1.5 shadow-sm">
+          <span className="text-emerald-400">🛡️ Blocks leaks before push</span>
+          <span className="text-slate-600">·</span>
+          <span className="text-purple-400">🧠 Guides instant recovery if already leaked</span>
+        </span>
+      </div>
+
+      <p className="text-center text-slate-400 max-w-2xl mb-10 text-base sm:text-lg leading-relaxed">
+        <code className="text-green-400">SecureVibeCoded</code> intercepts accidental API keys locally on{" "}
+        <span className="text-white font-mono">git commit</span>. And if a secret already slipped into past history,
+        our <span className="text-purple-400 font-semibold">Gemma AI auditor</span> permanently masks exposed data,
+        silences alert storms, and walks you through instant revocation.
       </p>
 
       {/* Terminal Animation */}

@@ -32,21 +32,21 @@ export default function NavBar() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between gap-4">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 font-bold text-white hover:text-green-400 transition-colors">
+        <a href="#" className="flex items-center gap-2 font-bold text-white hover:text-green-400 transition-colors flex-shrink-0">
           <Shield size={20} className="text-green-400" />
           <span>SecureVibeCoded</span>
-          <span className="text-xs text-slate-500 font-normal hidden sm:block">v1.0.0</span>
+          <span className="text-xs text-slate-500 font-normal hidden lg:inline">v1.0.0</span>
         </a>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-4 lg:gap-6 flex-wrap justify-center">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-slate-400 hover:text-white transition-colors"
+              className="text-xs lg:text-sm text-slate-400 hover:text-white transition-colors whitespace-nowrap"
             >
               {link.label}
             </a>
