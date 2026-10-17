@@ -17,13 +17,13 @@ interface GemmaRuntime {
 const RUNTIMES: GemmaRuntime[] = [
   {
     id: "ollama",
-    name: "Local Offline (Ollama)",
+    name: "Local Offline (Ollama / Gemma 4)",
     badge: "Recommended for Privacy",
     icon: "💻",
     latency: "~180ms",
     privacy: "100% On-Device (0 bytes sent online)",
-    description: "Runs Gemma 2 (2B / 9B) natively on your CPU/GPU using Ollama. Complete enterprise privacy: source code and masked tokens never leave your workstation.",
-    command: "ollama run gemma2:2b\n# svc automatically connects to http://localhost:11434",
+    description: "Runs Google Gemma (supporting Gemma 4, Gemma 2, 2B/9B) natively on your CPU/GPU using Ollama. Complete enterprise privacy: source code and masked tokens never leave your workstation.",
+    command: "ollama run gemma:latest  # or gemma-4 / gemma2:2b\n# svc automatically connects to http://localhost:11434",
   },
   {
     id: "google-ai",

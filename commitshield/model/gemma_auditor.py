@@ -139,7 +139,7 @@ class GemmaAuditor:
         try:
             import httpx
             payload = {
-                "model": self.model_name if "gemma" in self.model_name else "gemma2:2b",
+                "model": self.model_name,
                 "prompt": prompt,
                 "stream": False,
                 "format": "json",

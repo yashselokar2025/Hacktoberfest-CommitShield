@@ -63,7 +63,7 @@ def main() -> None:
 @click.option("--gemma/--no-gemma", default=True,
               help="Enable Gemma LLM semantic auditor for contextual second-opinion.")
 @click.option("--gemma-model", default="gemma2:2b",
-              help="Gemma model variant (e.g. gemma2:2b, gemma2:9b).")
+              help="Gemma model variant (e.g. gemma-4, gemma3, gemma2:2b, gemma2:9b).")
 @click.option("--no-baseline", is_flag=True, default=False,
               help="Skip baseline comparison (treat all findings as NEW).")
 @click.option("--output", type=click.Choice(["terminal", "json", "sarif"]),
