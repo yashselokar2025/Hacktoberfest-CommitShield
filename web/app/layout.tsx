@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description:
       "Stop leaking secrets. Run svc install once, stay protected forever.",
     type: "website",
-    url: "https://securevibecoded.vercel.app",
+    url: "https://hacktoberfest-commit-shield-git-main-yash-selokars-projects.vercel.app",
   },
   twitter: {
     card: "summary_large_image",

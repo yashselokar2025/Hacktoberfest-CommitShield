@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 const SCRIPT = [
   "#!/usr/bin/env bash",
   "# SecureVibeCoded installer — Linux / macOS",
-  "# Usage: curl -fsSL https://securevibecoded.vercel.app/api/install.sh | bash",
+  "# Usage: curl -fsSL https://hacktoberfest-commit-shield-git-main-yash-selokars-projects.vercel.app/api/install.sh | bash",
   "",
   "set -e",
   "",

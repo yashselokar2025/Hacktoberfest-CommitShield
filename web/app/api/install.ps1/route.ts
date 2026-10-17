@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 const SCRIPT = `# SecureVibeCoded installer — Windows PowerShell
-# Usage: iwr https://securevibecoded.vercel.app/api/install.ps1 | iex
+# Usage: iwr https://hacktoberfest-commit-shield-git-main-yash-selokars-projects.vercel.app/api/install.ps1 | iex
 
 $ErrorActionPreference = "Stop"
 
