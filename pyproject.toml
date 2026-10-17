@@ -1,0 +1,69 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "commitshield"
+version = "1.0.0"
+description = "Evidence-based, change-aware security gate for Git. Post-processor on Gitleaks with logistic regression classifier and explainable per-finding evidence."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Yash Selokar", email = "yas20selokar22@gmail.com" }]
+keywords = [
+    "security", "git", "pre-commit", "secret-detection", "gitleaks",
+    "false-positive-reduction", "change-aware", "explainable-ai",
+    "logistic-regression", "devops", "devsecops"
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Software Development :: Version Control :: Git",
+]
+requires-python = ">=3.9"
+dependencies = [
+    "click>=8.0",
+    "rich>=13.0",
+    "httpx>=0.24",
+    "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov",
+    "black",
+    "ruff",
+    "scikit-learn>=1.3",   # For training the LR model
+    "scipy>=1.10",          # For bootstrap CIs
+    "numpy>=1.24",
+    "matplotlib>=3.7",      # For PR curves
+]
+
+[project.scripts]
+commitshield = "commitshield.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/yashselokar2025/Hacktoberfest-CommitShield"
+Repository = "https://github.com/yashselokar2025/Hacktoberfest-CommitShield"
+Issues = "https://github.com/yashselokar2025/Hacktoberfest-CommitShield/issues"
+Dataset = "https://github.com/setu1421/SecretBench"
+
+
+[tool.hatch.build.targets.wheel]
+packages = ["commitshield"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = ["--tb=short"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"

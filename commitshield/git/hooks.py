@@ -1,0 +1,139 @@
+"""
+Git pre-commit hook installer/uninstaller for CommitShield.
+
+Installs a .git/hooks/pre-commit script that calls:
+  commitshield scan
+
+If a pre-commit hook already exists, CommitShield is appended rather
+than overwriting (so existing hooks keep working).
+"""
+
+from __future__ import annotations
+
+import os
+import stat
+from pathlib import Path
+
+_HOOK_MARKER_START = "# === CommitShield hook (start) ==="
+_HOOK_MARKER_END   = "# === CommitShield hook (end) ==="
+
+_HOOK_SNIPPET = """\
+{start}
+# CommitShield — evidence-based secret scanner
+# Remove this block to uninstall, or run: commitshield uninstall
+if command -v commitshield >/dev/null 2>&1; then
+    commitshield scan
+    CS_EXIT=$?
+    if [ $CS_EXIT -ne 0 ]; then
+        echo ""
+        echo "  CommitShield blocked this commit (exit $CS_EXIT)."
+        echo "  To bypass: git commit --no-verify"
+        exit $CS_EXIT
+    fi
+else
+    echo "  [CommitShield] Not installed — skipping secret scan."
+    echo "  Install: pip install commitshield"
+fi
+{end}
+""".format(start=_HOOK_MARKER_START, end=_HOOK_MARKER_END)
+
+_SHEBANG = "#!/bin/sh\n"
+
+
+def _find_hooks_dir(repo: Path) -> Path | None:
+    """Locate .git/hooks directory."""
+    git_dir = repo / ".git"
+    if git_dir.is_dir():
+        return git_dir / "hooks"
+    # Support git worktrees (git_dir is a file)
+    if git_dir.is_file():
+        content = git_dir.read_text().strip()
+        if content.startswith("gitdir:"):
+            real_git = Path(content[len("gitdir:"):].strip())
+            return real_git / "hooks"
+    return None
+
+
+def install_hook(repo: Path = Path(".")) -> Path | None:
+    """
+    Install CommitShield as a pre-commit hook.
+    Returns the hook path on success, None on failure.
+    """
+    hooks_dir = _find_hooks_dir(repo.resolve())
+    if hooks_dir is None:
+        return None
+
+    hooks_dir.mkdir(parents=True, exist_ok=True)
+    hook_path = hooks_dir / "pre-commit"
+
+    if hook_path.exists():
+        existing = hook_path.read_text(encoding="utf-8", errors="ignore")
+        # Already installed?
+        if _HOOK_MARKER_START in existing:
+            return hook_path  # idempotent
+        # Append to existing hook
+        new_content = existing.rstrip("\n") + "\n\n" + _HOOK_SNIPPET
+    else:
+        new_content = _SHEBANG + "\n" + _HOOK_SNIPPET
+
+    hook_path.write_text(new_content, encoding="utf-8")
+
+    # Make executable
+    current = hook_path.stat().st_mode
+    hook_path.chmod(current | stat.S_IXUSR | stat.S_IXGRP | stat.S_IXOTH)
+
+    return hook_path
+
+
+def uninstall_hook(repo: Path = Path(".")) -> bool:
+    """
+    Remove the CommitShield block from the pre-commit hook.
+    Leaves the rest of the hook intact. Returns True on success.
+    """
+    hooks_dir = _find_hooks_dir(repo.resolve())
+    if hooks_dir is None:
+        return False
+
+    hook_path = hooks_dir / "pre-commit"
+    if not hook_path.exists():
+        return True  # Nothing to remove
+
+    content = hook_path.read_text(encoding="utf-8", errors="ignore")
+    if _HOOK_MARKER_START not in content:
+        return True  # Not installed
+
+    # Strip between markers (inclusive)
+    lines = content.splitlines(keepends=True)
+    result = []
+    inside = False
+    for line in lines:
+        if _HOOK_MARKER_START in line:
+            inside = True
+            continue
+        if _HOOK_MARKER_END in line:
+            inside = False
+            continue
+        if not inside:
+            result.append(line)
+
+    new_content = "".join(result).rstrip("\n") + "\n"
+
+    # If only shebang remains, remove the file
+    stripped = new_content.strip()
+    if stripped in ("", "#!/bin/sh", "#!/usr/bin/env sh"):
+        hook_path.unlink()
+    else:
+        hook_path.write_text(new_content, encoding="utf-8")
+
+    return True
+
+
+def is_installed(repo: Path = Path(".")) -> bool:
+    """Check if CommitShield hook is installed."""
+    hooks_dir = _find_hooks_dir(repo.resolve())
+    if hooks_dir is None:
+        return False
+    hook_path = hooks_dir / "pre-commit"
+    if not hook_path.exists():
+        return False
+    return _HOOK_MARKER_START in hook_path.read_text(encoding="utf-8", errors="ignore")
