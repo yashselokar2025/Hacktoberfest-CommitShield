@@ -338,7 +338,7 @@ def model() -> None:
 @main.command()
 @click.option("--repo", type=click.Path(), default=".", help="Repository root.")
 def install(repo: str) -> None:
-    """Install CommitShield as a pre-commit hook."""
+    """Install SecureVibeCoded as a pre-commit hook."""
     from commitshield.git.hooks import install_hook
     result = install_hook(Path(repo))
     if result:
@@ -351,7 +351,7 @@ def install(repo: str) -> None:
 @main.command()
 @click.option("--repo", type=click.Path(), default=".", help="Repository root.")
 def uninstall(repo: str) -> None:
-    """Remove the CommitShield pre-commit hook."""
+    """Remove the SecureVibeCoded pre-commit hook."""
     from commitshield.git.hooks import uninstall_hook
     uninstall_hook(Path(repo))
     err_console.print("  [green]✓ Hook removed.[/green]")

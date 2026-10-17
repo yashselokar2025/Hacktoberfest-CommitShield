@@ -1,4 +1,4 @@
-name: CommitShield CI & Gemma Security Audit
+name: SecureVibeCoded CI & Gemma Security Audit
 
 on:
   push:
@@ -33,7 +33,8 @@ jobs:
         run: |
           pytest tests/ -v --cov=commitshield --cov-report=xml --cov-report=term-missing
 
-      - name: Test CommitShield CLI Help
+      - name: Test SecureVibeCoded CLI & Aliases
         run: |
-          commitshield --help
-          commitshield scan --help
+          securevibecoded --help
+          svc --help
+          svc scan --help
