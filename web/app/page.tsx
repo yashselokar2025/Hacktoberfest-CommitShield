@@ -1,6 +1,7 @@
 import NavBar from "@/components/NavBar";
 import Hero from "@/components/Hero";
 import Comparison from "@/components/Comparison";
+import AiLeakSolution from "@/components/AiLeakSolution";
 import FeatureGrid from "@/components/FeatureGrid";
 import ArchitectureSection from "@/components/ArchitectureSection";
 import GemmaArchitecture from "@/components/GemmaArchitecture";
@@ -20,16 +21,19 @@ export default function Home() {
         {/* 2. Why — before/after comparison */}
         <Comparison />
 
-        {/* 3. Features — bento grid */}
+        {/* 3. AI Coding Leak Defense Vector */}
+        <AiLeakSolution />
+
+        {/* 4. Features — bento grid */}
         <FeatureGrid />
 
-        {/* 4. Architecture & Live Logic Pipeline */}
+        {/* 5. Architecture & Live Logic Pipeline */}
         <ArchitectureSection />
 
-        {/* 5. Google Gemma AI Architecture */}
+        {/* 6. Google Gemma AI Architecture */}
         <GemmaArchitecture />
 
-        {/* 6. Playground — interactive fake terminal */}
+        {/* 7. Playground — interactive fake terminal */}
         <Playground />
 
         {/* 5. Social proof — GitHub stats + testimonials */}

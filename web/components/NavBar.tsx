@@ -5,6 +5,7 @@ import { Shield, Github, Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
   { href: "#why",                label: "Why" },
+  { href: "#ai-leaks",           label: "AI Leaks" },
   { href: "#features",           label: "Features" },
   { href: "#architecture",       label: "Architecture" },
   { href: "#gemma-architecture", label: "Gemma AI" },
