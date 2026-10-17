@@ -1,5 +1,5 @@
 """
-Terminal reporter — rich, evidence-first output for CommitShield.
+Terminal reporter — rich, evidence-first output for SecureVibeCoded.
 
 Key design principle: Show WHAT CHANGED, not all 20 existing findings.
 New findings shown prominently; existing findings collapsed to a summary.

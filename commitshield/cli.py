@@ -1,8 +1,8 @@
 """
-CommitShield CLI — Evidence-based, change-aware security gate for Git.
+SecureVibeCoded CLI — Evidence-based, change-aware security gate for Git.
 
 Architecture: Post-processor on Gitleaks JSON output.
-Gitleaks detects; CommitShield classifies and explains.
+Gitleaks detects; SecureVibeCoded classifies and explains.
 
 Commands:
   scan      — Scan staged files (calls Gitleaks, then re-scores with LR classifier)
@@ -27,22 +27,22 @@ err_console = Console(stderr=True)
 
 
 @click.group()
-@click.version_option(version="1.0.0", prog_name="CommitShield")
+@click.version_option(version="1.0.0", prog_name="SecureVibeCoded")
 def main() -> None:
     """
-    CommitShield — Evidence-based, change-aware security gate.
+    SecureVibeCoded (svc) — Evidence-based, change-aware security gate.
 
     Post-processor on Gitleaks: classifies each finding using 7 evidence
-    signals (logistic regression), compares against baseline (NEW/EXISTING/RESOLVED),
-    and outputs explainable confidence per finding.
+    signals (logistic regression + Gemma AI), compares against baseline
+    (NEW/EXISTING/RESOLVED), and outputs explainable confidence per finding.
 
     Quick start:
-      commitshield install              # Install pre-commit hook
-      commitshield scan                 # Scan staged files
-      commitshield train --csv ...      # Train on SecretBench
+      svc install              # Install pre-commit hook
+      svc scan                 # Scan staged files
+      svc train --csv ...      # Train on SecretBench
 
     Research:
-      commitshield model                # Show classifier coefficients
+      svc model                # Show classifier coefficients
     """
     pass
 

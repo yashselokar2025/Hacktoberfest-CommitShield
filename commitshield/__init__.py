@@ -1,5 +1,5 @@
 """
-CommitShield — Evidence-Based, Change-Aware Security Gate for Git Repositories.
+SecureVibeCoded (svc) — Evidence-Based, Change-Aware Security Gate for Git Repositories.
 
 Research Question:
   Can a change-aware, context-sensitive classification method reduce false-positive
@@ -7,10 +7,11 @@ Research Question:
   comparable to an established secret scanner?
 
 Architecture:
-  Multi-signal classifier → baseline comparison → risk prioritizer → safe reports
+  Gitleaks → Multi-signal LR classifier → Gemma AI audit → baseline comparison → risk prioritizer → safe reports
 """
 
 __version__ = "1.0.0"
+__title__ = "SecureVibeCoded"
 __author__ = "Yash Selokar"
 __email__ = "yas20selokar22@gmail.com"
 __research_question__ = (

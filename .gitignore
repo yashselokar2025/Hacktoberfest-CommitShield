@@ -64,3 +64,11 @@ venv.bak/
 *.pkl
 .commitshield/
 verify.py
+
+# Next.js web app
+web/node_modules/
+web/.next/
+web/out/
+web/.vercel/
+web/*.tsbuildinfo
+web/npm-debug.log*

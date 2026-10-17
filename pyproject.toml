@@ -3,9 +3,9 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "commitshield"
+name = "securevibecoded"
 version = "1.0.0"
-description = "Evidence-based, change-aware security gate for Git. Post-processor on Gitleaks with logistic regression classifier and explainable per-finding evidence."
+description = "SecureVibeCoded — Evidence-based, change-aware security gate for Git. Post-processor on Gitleaks with logistic regression classifier, Gemma AI auditing, and explainable per-finding evidence."
 readme = "README.md"
 license = { text = "MIT" }
 authors = [{ name = "Yash Selokar", email = "yas20selokar22@gmail.com" }]
@@ -48,7 +48,8 @@ dev = [
 ]
 
 [project.scripts]
-commitshield = "commitshield.cli:main"
+securevibecoded = "commitshield.cli:main"
+svc = "commitshield.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/yashselokar2025/Hacktoberfest-CommitShield"
