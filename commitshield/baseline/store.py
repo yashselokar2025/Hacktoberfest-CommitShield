@@ -27,7 +27,12 @@ from commitshield.core.finding import (
     Severity,
 )
 
-DEFAULT_DB_PATH = Path.home() / ".commitshield" / "findings.db"
+# Primary path ~/.svc, with fallback to legacy ~/.commitshield
+_SVC_DIR = Path.home() / ".svc"
+_LEGACY_DIR = Path.home() / ".commitshield"
+_ACTIVE_DIR = _SVC_DIR if _SVC_DIR.exists() or not _LEGACY_DIR.exists() else _LEGACY_DIR
+
+DEFAULT_DB_PATH = _ACTIVE_DIR / "findings.db"
 SCHEMA_VERSION = 1
 
 

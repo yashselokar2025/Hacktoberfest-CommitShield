@@ -48,7 +48,7 @@ CONFIDENCE_COLORS = {
 
 def print_banner(version: str = "1.0.0") -> None:
     console.print(Panel.fit(
-        f"[bold white]CommitShield[/bold white] [dim]v{version}[/dim]  *  "
+        f"[bold white]SecureVibeCoded (svc)[/bold white] [dim]v{version}[/dim]  *  "
         "[dim]Evidence-Based Change-Aware Security Gate[/dim]",
         border_style="bright_blue",
         padding=(0, 2),
@@ -155,7 +155,7 @@ def print_existing_summary(findings: list) -> None:
         "(suppressed -- not introduced by this commit)[/dim]"
     )
     console.print(
-        "  [dim]    Run 'commitshield history' to review all known findings.[/dim]"
+        "  [dim]    Run 'svc history' to review all known findings.[/dim]"
     )
 
 
@@ -189,7 +189,7 @@ def print_final_verdict_v2(
     if should_block:
         console.print(
             "  [dim]To bypass (use responsibly):   git commit --no-verify[/dim]\n"
-            "  [dim]To suppress a finding: add to .commitshield.yaml allowlist.[/dim]"
+            "  [dim]To suppress a finding: add to .svc.yaml allowlist.[/dim]"
         )
 
 

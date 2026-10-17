@@ -47,9 +47,13 @@ from commitshield.model.features import (
     feature_var_name_secret,
 )
 
-# Default model path (trained model stored here)
-DEFAULT_MODEL_PATH = Path.home() / ".commitshield" / "model.pkl"
-DEFAULT_COEFF_PATH = Path.home() / ".commitshield" / "coefficients.json"
+# Default model path (checks ~/.svc then falls back to ~/.commitshield)
+_SVC_DIR = Path.home() / ".svc"
+_LEGACY_DIR = Path.home() / ".commitshield"
+_MODEL_DIR = _SVC_DIR if (_SVC_DIR / "model.pkl").exists() else _LEGACY_DIR
+
+DEFAULT_MODEL_PATH = _MODEL_DIR / "model.pkl"
+DEFAULT_COEFF_PATH = _MODEL_DIR / "coefficients.json"
 
 
 # Hard-block list: ALWAYS surface these regardless of classifier output
