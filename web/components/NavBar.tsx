@@ -4,11 +4,12 @@ import { useState, useEffect } from "react";
 import { Shield, Github, Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
-  { href: "#why",        label: "Why" },
-  { href: "#features",   label: "Features" },
-  { href: "#playground", label: "Playground" },
-  { href: "#social",     label: "Community" },
-  { href: "#config",     label: "Config" },
+  { href: "#why",          label: "Why" },
+  { href: "#features",     label: "Features" },
+  { href: "#architecture", label: "Architecture" },
+  { href: "#playground",   label: "Playground" },
+  { href: "#social",       label: "Community" },
+  { href: "#config",       label: "Config" },
 ];
 
 export default function NavBar() {

@@ -2,6 +2,7 @@ import NavBar from "@/components/NavBar";
 import Hero from "@/components/Hero";
 import Comparison from "@/components/Comparison";
 import FeatureGrid from "@/components/FeatureGrid";
+import ArchitectureSection from "@/components/ArchitectureSection";
 import Playground from "@/components/Playground";
 import SocialProof from "@/components/SocialProof";
 import ConfigBuilder from "@/components/ConfigBuilder";
@@ -21,7 +22,10 @@ export default function Home() {
         {/* 3. Features — bento grid */}
         <FeatureGrid />
 
-        {/* 4. Playground — interactive fake terminal */}
+        {/* 4. Architecture & Live Logic Pipeline */}
+        <ArchitectureSection />
+
+        {/* 5. Playground — interactive fake terminal */}
         <Playground />
 
         {/* 5. Social proof — GitHub stats + testimonials */}
