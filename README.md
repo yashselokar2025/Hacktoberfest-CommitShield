@@ -1,4 +1,5 @@
 # SecureVibeCoded (svc) 🛡️
+Live link -https://hacktoberfest-commit-shield-git-main-yash-selokars-projects.vercel.app
 
 **An evidence-based, change-aware security gate for Git repositories powered by calibrated Logistic Regression & Google Gemma.**
 
