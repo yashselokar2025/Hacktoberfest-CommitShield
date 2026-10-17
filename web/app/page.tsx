@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Comparison from "@/components/Comparison";
 import FeatureGrid from "@/components/FeatureGrid";
 import ArchitectureSection from "@/components/ArchitectureSection";
+import GemmaArchitecture from "@/components/GemmaArchitecture";
 import Playground from "@/components/Playground";
 import SocialProof from "@/components/SocialProof";
 import ConfigBuilder from "@/components/ConfigBuilder";
@@ -25,7 +26,10 @@ export default function Home() {
         {/* 4. Architecture & Live Logic Pipeline */}
         <ArchitectureSection />
 
-        {/* 5. Playground — interactive fake terminal */}
+        {/* 5. Google Gemma AI Architecture */}
+        <GemmaArchitecture />
+
+        {/* 6. Playground — interactive fake terminal */}
         <Playground />
 
         {/* 5. Social proof — GitHub stats + testimonials */}
